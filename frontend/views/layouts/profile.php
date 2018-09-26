@@ -25,74 +25,36 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<?php
+<div class="navbar-fixed">
+    <nav class="whitesilver">
+        <div class="nav-wrapper grey-text">
 
-    if (Yii::$app->user->isGuest){
-        $navItems = [
-            [
-                'content' => Html::beginForm(['/site/search'], 'post', ['id' => 'horizontalmenu'])
-                    .Html::tag('i', 'search', ['class' => 'item material-icons grey-text'])
-                    .Html::input('search', 'search', null, ['class' => 'item', 'placeholder' => 'Искать'])
-                    .Html::endForm()
-            ],
-            [
-                'url' => ['/site/login'],
-                'content' => 'Войти',
-                'class' => 'grey-text',
-            ],
-            [
-                'attrs' => 'style: "padding: 0 5px"',
-                'content' => 'или'
-            ],
-            [
-                'class' => 'image',
-                'url' => ['/site/login', 'with' => 'facebook'],
-                'content' => Html::img('images/socialicons/png/036-facebook.png'),
-            ],
-            [
-                'class' => 'image',
-                'url' => ['/site/login', 'with' => 'google'],
-                'content' => Html::img('images/socialicons/png/033-google-plus.png'),
-            ],
-            [
-                'class' => 'image',
-                'url' => ['/site/login', 'with' => 'github'],
-                'content' => Html::img('images/socialicons/png/github.ico'),
-            ],
-            [
-                'url' => ['/site/signup'],
-                'content' => 'Регистрация',
-                'class' => 'grey-text'
-            ]
-        ]; // change navbar items on login
-    }
-    else {
-        $navItems = [
-            [
-                'content' => Html::beginForm(['/site/search'], 'post', ['id' => 'horizontalmenu'])
-                    .Html::tag('i', 'search', ['class' => 'item material-icons grey-text'])
-                    .Html::input('search', 'search', null, ['class' => 'item', 'placeholder' => 'Искать'])
-                    .Html::endForm()
-            ],
+            <?= Html::a('<img src="logo1.png"><div class="hide-on-med-and-down">iDeveloper</div>',
+                ['/site'],
                 [
-                        'content' => Html::a(
-                                "<i class='material-icons grey-text'>person</i>"
-                                ."<span class='hide-on-med-and-down right grey-text'>".Yii::$app->user->identity->profile->firstname."</span>"
-                                ."<i class='material-icons  grey-text'>arrow_drop_down</i>",
-                                '#',
-                                [
-                                    'class' => 'dropdown-trigger flex',
-                                    'data-target' => 'profile_dropdown',
-                                    'style' => 'padding: 0 15px'
-                                ])
-                ]
-        ];
-    }
-
-    $nav = new \common\widgets\Nav(['items' => $navItems, 'class' => 'whitesilver']);
-    $nav->run();
-
-?>
+                    'class' => 'brand-logo grey-text',
+                    'id' => 'brand-logo'
+                ]) ?>
+            <a href="#" data-target="mobile-menu" class="sidenav-trigger">
+                <i class="material-icons grey-text">menu</i>
+            </a>
+            <ul class="right">
+                <li>
+                    <a href="#" class="dropdown-trigger flex" data-target="profile_dropdown" style="padding: 0 15px">
+                        <i class="material-icons grey-text">person</i>
+                        <span class='hide-on-small-and-down right grey-text'><?= Yii::$app->user->identity->profile->firstname ?></span>
+                        <i class='material-icons grey-text'>arrow_drop_down</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<ul class="dropdown-content" id="profile_dropdown">
+    <li>
+        <a href="#">ok google</a>
+    </li>
+</ul>
 
 
     <ul class="sidenav" id="mobile-menu">
@@ -101,6 +63,11 @@ AppAsset::register($this);
     </ul>
 
     <main>
+        <div class="row">
+            <div class="col m3 hide-on-small-and-down">a</div>
+            <div class="col m6 s12">b</div>
+            <div class="col m3 hide-on-small-and-down">c</div>
+        </div>
             <?= $content ?>
     </main>
 

@@ -78,7 +78,7 @@ AppAsset::register($this);
                         'content' => Html::a(
                                 "<i class='material-icons grey-text'>person</i>"
                                 ."<span class='hide-on-med-and-down right grey-text'>".Yii::$app->user->identity->profile->firstname."</span>"
-                                ."<i class='material-icons  grey-text'>arrow_drop_down</i>",
+                                ."<i class='material-icons grey-text'>arrow_drop_down</i>",
                                 '#',
                                 [
                                     'class' => 'dropdown-trigger flex',
