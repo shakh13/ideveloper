@@ -7,27 +7,32 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Signup';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Создать аккаунт';
 ?>
-<div class="site-signup">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to signup:</p>
-
+<div class="container">
+    <div class="center">
+        <img src="logo0.png" width="58" height="58" style="margin: 30px 0 0px 0;">
+        <h5 class="grey-text text-darken-2">Создать аккаунт</h5>
+        <br>
+    </div>
     <div class="row">
-        <div class="col-lg-5">
+        <div class="col s12 m4 offset-m4 white z-depth-1-half mb20">
             <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+            <?= $form->field($model, 'username', ['options' => ['class' => 'input-field']])
+                ->textInput(['autofocus' => true])
+                ->label('Логин') ?>
 
-                <?= $form->field($model, 'email') ?>
+            <?= $form->field($model, 'email', ['options' => ['class' => 'input-field']]) ?>
 
-                <?= $form->field($model, 'password')->passwordInput() ?>
+            <?= $form->field($model, 'password', ['options' => ['class' => 'input-field']])
+                ->passwordInput()
+                ->label('Пароль') ?>
 
-                <div class="form-group">
-                    <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
-                </div>
+            <p class="center">
+                <?= Html::submitButton('Создать аккаунт', ['class' => 'btn w100', 'name' => 'signup-button']) ?>
+            </p>
 
             <?php ActiveForm::end(); ?>
         </div>

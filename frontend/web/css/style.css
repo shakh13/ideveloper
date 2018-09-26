@@ -11,6 +11,43 @@ main{
 
 #brand-logo{
     padding: 0 15px;
+    display: flex;
+}
+
+#brand-logo > img{
+    width: 38px;
+    height: 38px;
+    margin: 13px 5px;
+}
+
+#brand-logo > div{
+    line-height: 64px;
+    height: 64px;
+}
+
+@media only screen and (max-width: 992px){
+    #brand-logo > img{
+        width: 34px;
+        height: 34px;
+        margin: 11px 5px;
+    }
+
+    #brand-logo > div{
+        line-height: 56px;
+        height: 56px;
+    }
+}
+
+@media only screen and (min-width: 601px){
+    #brand-logo > img{
+        width: 38px;
+        height: 38px;
+        margin: 13px 5px;
+    }
+}
+
+.whitesilver{
+    background-image: radial-gradient(#FFF, #F0F0F0);
 }
 
 #horizontalmenu{
@@ -34,6 +71,11 @@ a.image > img{
     width: 24px;
 }
 
+a.image > span.fa{
+    margin: 20px 0;
+    width: 24px;
+    font-size: 32px;
+}
 .land{
     background-image: url(../images/samples/277597_web-developer-wallpaper.jpg);
     background-position: center top;
@@ -194,3 +236,136 @@ a.image > img{
 .col.m9.white{
     min-height: 600px; 
 }
+
+#project_opt > div{
+    padding: 10px;
+}
+
+#project_opt > div.col.m4{
+    text-align: right;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 770px){
+    #project_opt > div.col.m4{
+        text-align: left;
+        width: 100%;
+    }
+}
+
+.messages{
+    width: 100%;
+    display: flex;
+    min-height: 500px;
+}
+
+.messages > .persons{
+    width: 30%;
+    background-color: #FFF;
+    border-radius: 2px;
+    overflow: auto;
+    border-right: 1px solid #e0e0e0;
+}
+
+.messages > .persons > .item{
+    height: 64px;
+    display: flex;
+    color: #666;
+    font-size: 16px;
+    line-height: 64px;
+    word-break: break-word;
+    word-wrap: break-word;
+}
+
+.messages > .persons > .item:hover{
+    background-color: #DDD;
+}
+
+.messages > .persons > .item > img{
+    height: 50px;
+    width: 50px;
+    margin: 8px 7px 6px 7px;
+    border: 1px solid #e0e0e0;
+}
+
+.messages > .persons > .item > div.info {
+    width: 100%;
+}
+
+.messages > .persons > .item > div.second-content{
+    text-align: right;
+    width: 64px;
+    padding-right: 7px;
+    font-size: 11px;
+}
+
+.messages > .persons > .item > div.second-content > span{
+    padding: 1px 4px;
+    background-color: #26a69a;
+    color: #FFF;
+    border-radius: 2px;
+    font-weight: bold;
+}
+.messages > .persons > .item > div.second-content > span:after{
+    content: " new";
+    font-weight: normal;
+}
+
+.messages > .conversation{
+    width: 100%;
+    background-color: #FFF;
+}
+
+.messages > .conversation > .header{
+    height: 55px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.messages > .conversation > .writer{
+    height: 46px;
+    display: flex;
+}
+
+.messages > .conversation > .writer > .message{
+    width: 100%;
+    font-size: 15px;
+}
+
+.messages > .conversation > .writer > .message > input{
+    margin-bottom: 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.messages > .conversation > .writer > .send > button, .messages > .conversation > .writer > .send > button > i{
+    height: 46px;
+    line-height: 46px;
+}
+
+.messages > .conversation > .msgs{
+    height: calc(100% - 100px);
+    max-height: calc(100% - 100px);
+    overflow-y: scroll;
+}
+
+.profile{
+    display: flex;
+    line-height: 55px;
+}
+
+.profile > img{
+    width: 41px;
+    height: 41px;
+    margin: 7px;
+    border: 1px solid #e0e0e0;
+}
+
+.profile > a > i{
+    line-height: 55px;
+    padding: 0 10px;
+}
+
+.profile > .info{
+    width: 100%;
+}
+

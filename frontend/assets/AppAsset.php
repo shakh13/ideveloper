@@ -10,19 +10,19 @@ use yii\web\AssetBundle;
 class AppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
-    public $baseUrl = '@web';
     public $css = [
-        'css/style.css',
+        'css/materialize.min.css',
         'css/docs.css',
-        'css/font-awesome.css',
         'css/fonts.css',
-        'css/materialize.css',
+        'css/font-awesome.css',
         'css/bootstrap-social.css',
+        'css/style.css',
     ];
+    public $baseUrl = '@web';
     public $js = [
-        'js/jquery.js',
-        'js/materialize.js',
+        'js/jquery.min.js',
         'js/docs.js',
+        'js/materialize.min.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

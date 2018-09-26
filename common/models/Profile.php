@@ -40,14 +40,14 @@ class Profile extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'firstname', 'lastname', 'address', 'postcode', 'alias', 'phone'], 'required'],
+            [['user_id', 'firstname', 'lastname', 'address', 'postcode', 'alias', 'phone'], 'required', 'message' => 'Заполните поля'],
             [['user_id', 'city_id', 'postcode', 'role', 'phone', 'category_id'], 'integer'],
             [['about'], 'string'],
-            [['firstname', 'lastname'], 'string', 'max' => 15],
-            [['address'], 'string', 'max' => 128],
-            [['alias'], 'string', 'max' => 13],
-            [['alias'], 'unique'],
-            [['phone'], 'unique'],
+            [['firstname', 'lastname'], 'string', 'max' => 15, 'message' => 'Максимальное кол-во символов 15'],
+            [['address'], 'string', 'max' => 128, 'message' => 'Максимальное кол-во символов 128'],
+            [['alias'], 'string', 'max' => 13, 'message' => 'Максимальное кол-во символов 13'],
+            [['alias'], 'unique', 'message' => 'Выберите другое.'],
+            [['phone'], 'unique', 'message' => 'Выберите другое.'],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
             [['city_id'], 'exist', 'skipOnError' => true, 'targetClass' => City::className(), 'targetAttribute' => ['city_id' => 'id']],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
