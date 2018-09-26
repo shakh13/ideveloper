@@ -74,10 +74,12 @@ class SiteController extends Controller
             if (isset(Yii::$app->user->identity->profile)){
                 if (Yii::$app->user->identity->profile->role == 1){
                     $this->redirect(['/freelancer']);
+                    return parent::beforeAction($action);
                 }
                 else {
                     if (Yii::$app->user->identity->profile->role == 2){
                         $this->redirect(['/profile']);
+                        return parent::beforeAction($action);
                     }
                 }
             }
