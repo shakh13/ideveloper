@@ -44,9 +44,6 @@ return [
             ],
         ],
         */
-        'mailer' => [
-            'class' => \yii\swiftmailer\Mailer::className(),
-        ]
     ],
     'params' => $params,
 ];

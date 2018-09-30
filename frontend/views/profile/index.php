@@ -1,9 +1,5 @@
 <?php
 /* @var $this yii\web\View */
-
-    $this->title = 'Заказчик';
-
-
 ?>
 <h1>profile/index</h1>
 

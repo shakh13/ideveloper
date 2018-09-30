@@ -28,6 +28,15 @@ class Nav extends \yii\base\Widget{
     /**
      * @return string
      */
+
+
+    private function fill($var){
+        return isset($var)? (strlen($var) == 0 ? '' : $var) : '';
+    }
+
+    /**
+     * @return string
+     */
     public function getLogo()
     {
         return $this->logo;
