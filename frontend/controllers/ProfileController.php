@@ -49,4 +49,8 @@ class ProfileController extends \yii\web\Controller
         return $this->goHome();
     }
 
+    public function actionMakeOrder(){
+        return $this->render('makeOrder');
+    }
+
 }
