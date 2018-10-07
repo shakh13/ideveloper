@@ -64,11 +64,85 @@ AppAsset::register($this);
 
     <main>
         <div class="row">
-            <div class="col m3 hide-on-small-and-down">a</div>
-            <div class="col m6 s12">b</div>
-            <div class="col m3 hide-on-small-and-down">c</div>
+            <div class="col m2 hide-on-small-and-down">
+                <ul class="mm">
+                    <li class="header">Заказы</li>
+                    <li>
+                        <a href="<?= Yii::$app->urlManager->createUrl(['/profile/make-order']) ?>">
+                            <i class="material-icons">add_box</i>
+                            <span>Оформить заказ</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= Yii::$app->urlManager->createUrl(['/profile/myorders']) ?>">
+                            <i class="material-icons">archive</i>
+                            <span>Мои заказы</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= Yii::$app->urlManager->createUrl(['/profile/orders-in-process']) ?>">
+                            <i class="material-icons">access_time</i>
+                            <span>В процессе</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="mm">
+                    <li class="header">Профиль</li>
+                    <li>
+                        <a href="<?= Yii::$app->urlManager->createUrl(['/profile']) ?>">
+                            <i class="material-icons">home</i>
+                            <span>Главная страница</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= Yii::$app->urlManager->createUrl(['/profile/settings']) ?>">
+                            <i class="material-icons">settings</i>
+                            <span>Настройки</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= Yii::$app->urlManager->createUrl(['/profile/logout']) ?>">
+                            <i class="material-icons">exit_to_app</i>
+                            <span>Выход</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col m7 s12">
+                <?= $content ?>
+            </div>
+            <div class="col m3 hide-on-small-and-down">
+                <div class="users-online" style="padding-top: 15px;">
+                    <div style="font-size: 14px; color: #666; font-weight: bold;">Пользователи в сети</div>
+                    <div class="mcollection">
+                        <a href="<?= Yii::$app->urlManager->createUrl(['/profile/user', 'id' => 1]) ?>">
+                            <img src="images/samples/Web-developer-in-Lahore.jpg" class="circle">
+                            <div class="header">
+                                Шахзод Саидмуродов
+                                <span>Администратор</span>
+                            </div>
+                        </a>
+                        <a href="<?= Yii::$app->urlManager->createUrl(['/profile/user', 'id' => 1]) ?>">
+                            <img src="images/samples/Web-developer-in-Lahore.jpg" class="circle">
+                            <div class="header">
+                                Шахзод Саидмуродов
+                                <span>Фрилансер</span>
+                            </div>
+                        </a>
+                        <a href="<?= Yii::$app->urlManager->createUrl(['/profile/user', 'id' => 1]) ?>">
+                            <img src="images/samples/Web-developer-in-Lahore.jpg" class="circle">
+                            <div class="header">
+                                Шахзод Саидмуродов
+                                <span>Заказчик</span>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
         </div>
-            <?= $content ?>
     </main>
 
 <footer class="page-footer blue-grey darken-4">
