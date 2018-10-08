@@ -2,6 +2,8 @@
 
 namespace frontend\controllers;
 
+use common\models\Order;
+use common\models\Project;
 use Yii;
 use yii\filters\AccessControl;
 
@@ -50,7 +52,10 @@ class ProfileController extends \yii\web\Controller
     }
 
     public function actionMakeOrder(){
-        return $this->render('makeOrder');
+        $model = new Project();
+        return $this->render('makeproject', [
+            'model' => $model,
+        ]);
     }
 
 }

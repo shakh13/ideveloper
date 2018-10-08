@@ -20,7 +20,7 @@ class AppAsset extends AssetBundle
     ];
     public $baseUrl = '@web';
     public $js = [
-        'js/jquery.min.js',
+    //    'js/jquery.min.js',
         'js/docs.js',
         'js/materialize.min.js'
     ];

@@ -63,7 +63,7 @@ AppAsset::register($this);
     </ul>
 
     <main>
-        <div class="row">
+        <div class="row" style="margin-bottom: 0;">
             <div class="col m2 hide-on-small-and-down">
                 <ul class="mm">
                     <li class="header">Заказы</li>
@@ -114,7 +114,7 @@ AppAsset::register($this);
                 <?= $content ?>
             </div>
             <div class="col m3 hide-on-small-and-down">
-                <div class="users-online" style="padding-top: 15px;">
+                <div class="users-online" style="padding-top: 15px; padding-left: 10px;">
                     <div style="font-size: 14px; color: #666; font-weight: bold;">Пользователи в сети</div>
                     <div class="mcollection">
                         <a href="<?= Yii::$app->urlManager->createUrl(['/profile/user', 'id' => 1]) ?>">
@@ -178,6 +178,7 @@ AppAsset::register($this);
         $(".dropdown-trigger").dropdown({constrainWidth:false});
         $(".collapsible").collapsible();
         $('select').formSelect();
+        $('.datepicker').datepicker();
     });
 </script>
 </body>

@@ -110,6 +110,14 @@ a.image > span.fa{
     padding: 5px;
 }
 
+.pad150{
+    padding: 15px 0;
+}
+
+.mar150{
+    margin: 15px 0;
+}
+
 .bpad50{
     padding-bottom: 50px;
 }
@@ -422,4 +430,9 @@ a.image > span.fa{
     display: block;
     font-size: 12px;
     color: orange;
+}
+
+.help-block{
+    font-size: 12px;
+    color: red;
 }
