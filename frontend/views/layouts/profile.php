@@ -85,6 +85,18 @@ AppAsset::register($this);
                             <span>В процессе</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="<?= Yii::$app->urlManager->createUrl(['/profile/orders-in-payment']) ?>">
+                            <i class="material-icons">hourglass_empty</i>
+                            <span>В ожидании оплаты</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= Yii::$app->urlManager->createUrl(['/profile/orders-finished']) ?>">
+                            <i class="material-icons">hourglass_empty</i>
+                            <span>Законченные</span>
+                        </a>
+                    </li>
                 </ul>
 
                 <ul class="mm">
@@ -178,7 +190,10 @@ AppAsset::register($this);
         $(".dropdown-trigger").dropdown({constrainWidth:false});
         $(".collapsible").collapsible();
         $('select').formSelect();
-        $('.datepicker').datepicker();
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd'
+        });
+        $('.collapsible').collapsible();
     });
 </script>
 </body>

@@ -36,6 +36,9 @@ use Yii;
  */
 class Project extends \yii\db\ActiveRecord
 {
+
+    public $file;
+    public $dl;
     /**
      * @inheritdoc
      */
@@ -50,17 +53,19 @@ class Project extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'title', 'description', 'content', 'tz', 'pay'], 'required'],
+            [['user_id', 'title', 'description', 'content', 'pay'], 'required'],
             [['user_id', 'price', 'category_id', 'freelancer_id', 'pay'], 'integer'],
             [['content'], 'string'],
-            [['hired_date', 'created_at'], 'safe'],
+            [['hired_date', 'created_at', 'dl'], 'safe'],
             [['title'], 'string', 'max' => 128],
             [['description', 'tz'], 'string', 'max' => 255],
+            ['deadline', 'string', 'max' => 10, 'min' => 10],
             [['currency'], 'string', 'max' => 3],
-            [['deadline', 'status', 'done'], 'string', 'max' => 4],
+            [['status', 'done'], 'integer'],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
             [['freelancer_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['freelancer_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
+            ['file', 'file', 'skipOnEmpty' => false, 'extensions' => 'doc, docx, pdf'],
         ];
     }
 
@@ -86,6 +91,7 @@ class Project extends \yii\db\ActiveRecord
             'hired_date' => 'Hired Date',
             'pay' => 'Pay', // Percent to pay
             'created_at' => 'Created At',
+            'file' => 'Техническое задание',
         ];
     }
 
@@ -159,5 +165,18 @@ class Project extends \yii\db\ActiveRecord
     public function getProjectNotifications()
     {
         return $this->hasMany(ProjectNotification::className(), ['project_id' => 'id']);
+    }
+
+    public function upload(){
+
+        if ($this->validate()){
+            $filename = sha1(time().$this->file->baseName).'.'.$this->file->extension;
+            $this->tz = $filename;
+            $this->file->saveAs('files/'.$filename, false);
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }

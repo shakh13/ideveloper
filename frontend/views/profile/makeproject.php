@@ -10,7 +10,7 @@ use yii\widgets\ActiveForm;
 
 $this->title = "Оформить заказ";
 
-$form = ActiveForm::begin();
+$form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]);
 ?>
     <div class="row white pad150 mar150 z-depth-1-half" >
         <div class="col s12 m8 offset-m2">
@@ -64,14 +64,8 @@ $form = ActiveForm::begin();
             ->input('number', ['value' => 100, 'min' => 40, 'max' => 100])
             ->label('Предоплата %')
         ?>
-        <div class="col s12 m8 offset-m2 input-field file-field">
-            <div class="btn">
-                <span>ТЗ</span>
-                <input type="file" name="Project[tz]" id="tz" required>
-            </div>
-            <div class="file-path-wrapper">
-                <input class="file-path validate" type="text" required>
-            </div>
+        <div class="col s12 m8 offset-m2">
+            <?= $form->field($model, 'file')->fileInput(['required']) ?>
         </div>
 
         <?php
@@ -100,8 +94,3 @@ $form = ActiveForm::begin();
 <?php
     ActiveForm::end();
 ?>
-
-//--------------------------------------------------------------
-    fix: deadline to deadl and code model
-    fix: tz file input
-//--------------------------------------------------------------
