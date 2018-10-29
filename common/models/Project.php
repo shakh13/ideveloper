@@ -85,7 +85,7 @@ class Project extends \yii\db\ActiveRecord
             'tz' => 'Tz',
             'category_id' => 'Category ID',
             'deadline' => 'Deadline', // In days
-            'status' => 'Status', // 0->waiting, 1->paid, 2->hired, 3->finished, 4->success, 5->aborted
+            'status' => 'Status', // 0->waiting to pay, 1->paid(waiting to hire), 2->hired(not finished), 3->finished(waiting to confirm), 4->success, 5->aborted
             'freelancer_id' => 'Freelancer ID',
             'done' => 'Done', // Shown in percents
             'hired_date' => 'Hired Date',

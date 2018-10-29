@@ -45,7 +45,13 @@ class ProfileController extends \yii\web\Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $user = Yii::$app->user->identity;
+        $myprojects = Project::find()->where(['user_id' => $user->id])->orderBy('created_at')->all();
+
+        return $this->render('index', [
+            'user' => $user,
+            'myprojects' => $myprojects,
+        ]);
     }
 
     public function actionLogout(){
